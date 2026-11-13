@@ -1,0 +1,35 @@
+[
+  {
+    "id": "UC",
+    "name": "Universidad Central",
+    "access": "Acceso norte",
+    "distanceM": 500,
+    "port": 4001,
+    "aisles": ["A", "B", "C", "D", "E"],
+    "spacesPerAisle": 8,
+    "targetOccupancy": 0.15,
+    "color": "blue"
+  },
+  {
+    "id": "CC",
+    "name": "Centro Comercial",
+    "access": "Entrada principal",
+    "distanceM": 800,
+    "port": 4002,
+    "aisles": ["A", "B"],
+    "spacesPerAisle": 8,
+    "targetOccupancy": 0.25,
+    "color": "violet"
+  },
+  {
+    "id": "HM",
+    "name": "Hospital Metropolitano",
+    "access": "Acceso sur",
+    "distanceM": 1200,
+    "port": 4003,
+    "aisles": ["A", "B", "C"],
+    "spacesPerAisle": 8,
+    "targetOccupancy": 0.4,
+    "color": "amber"
+  }
+]

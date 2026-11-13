@@ -1,0 +1,34 @@
+# Despliegue distribuido: cada estacionamiento en su propio contenedor (con su propio
+# volumen de datos), conectados al gateway por una red Docker.
+# Para simular una caída real:  docker compose stop node-hm   /   docker compose start node-hm
+services:
+  gateway:
+    build: .
+    command: ["node", "src/gateway/server.js"]
+    environment:
+      PORT: "3000"
+      NODE_URLS: "UC=http://node-uc:4001,CC=http://node-cc:4002,HM=http://node-hm:4003"
+    ports: ["3000:3000"]
+
+  node-uc:
+    build: .
+    command: ["node", "src/node/server.js"]
+    environment: { LOT_ID: UC, PORT: "4001", GATEWAY_URLS: "http://gateway:3000", SELF_URL: "http://node-uc:4001", DATA_DIR: /data }
+    volumes: ["data-uc:/data"]
+
+  node-cc:
+    build: .
+    command: ["node", "src/node/server.js"]
+    environment: { LOT_ID: CC, PORT: "4002", GATEWAY_URLS: "http://gateway:3000", SELF_URL: "http://node-cc:4002", DATA_DIR: /data }
+    volumes: ["data-cc:/data"]
+
+  node-hm:
+    build: .
+    command: ["node", "src/node/server.js"]
+    environment: { LOT_ID: HM, PORT: "4003", GATEWAY_URLS: "http://gateway:3000", SELF_URL: "http://node-hm:4003", DATA_DIR: /data }
+    volumes: ["data-hm:/data"]
+
+volumes:
+  data-uc:
+  data-cc:
+  data-hm:

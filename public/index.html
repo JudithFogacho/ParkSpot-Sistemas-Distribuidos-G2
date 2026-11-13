@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ParkSpot · Estaciona fácil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="topbar">
+      <a class="brand" href="#/"><span class="brand-mark">P</span>ParkSpot</a>
+      <nav>
+        <span class="conn-pill" id="conn"><span class="dot offline"></span>Conectando…</span>
+        <a class="navlink" href="/admin" target="_blank" title="Panel de simulación de fallos">
+          <svg class="i" viewBox="0 0 24 24"><path d="M12 20v-6M6 20V10M18 20V4"/></svg><span>Panel de simulación</span>
+        </a>
+      </nav>
+    </header>
+  </div>
+  <main id="app"></main>
+  <div class="toasts" id="toasts"></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>
