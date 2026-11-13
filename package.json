@@ -1,0 +1,17 @@
+{
+  "name": "parkshare-distribuido",
+  "version": "1.0.0",
+  "description": "Sistema distribuido de consulta y reserva de estacionamientos con tolerancia a fallos parciales de conectividad",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node scripts/start-all.js",
+    "gateway": "node src/gateway/server.js",
+    "node:uc": "LOT_ID=UC node src/node/server.js",
+    "node:cc": "LOT_ID=CC node src/node/server.js",
+    "node:hm": "LOT_ID=HM node src/node/server.js",
+    "reset": "rm -rf data/*.json",
+    "test": "node scripts/test-e2e.js"
+  }
+}
